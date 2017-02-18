@@ -91,12 +91,19 @@ for ($arrayIndex = 0; $arrayIndex < $oddWordsArrayCount; $arrayIndex++) {
 }
 
 $position = 0;
+
 foreach ($continentsAnimalsCount as $continent => $animalsCount) {
+    $currentIndex = 0;
     echo '<h2>' . $continent . '</h2>';
     $continentsAnimals = array_slice($newAnimalsTwoWordsArray, $position, $animalsCount[0]);
     foreach ($continentsAnimals as $continentsAnimal) {
         echo $continentsAnimal;
-        echo '</br>';
+        if ($currentIndex+1 === $animalsCount[0]){
+            continue;
+        }
+        echo ', ';
+        $currentIndex++;
     }
     $position += $animalsCount[0];
 }
+
